@@ -8,7 +8,7 @@ const Register=()=>{
 
    const registerUser=(e)=>{
       e.preventDefault()
-      
+
    }
 
     return(
