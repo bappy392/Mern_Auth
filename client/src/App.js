@@ -1,32 +1,32 @@
 
 import './App.css';
-import {BrowserRouter, Link, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, NavLink, Routes, Route} from 'react-router-dom'
 import Register from './Register';
 
 
 
 
-function App() {
+const App = () => {
+
   return (
 
-        <BrowserRouter>
-       
-        <div>
-        <Link to='/'>Home</Link><span></span> <span></span>
-        <Link to='/login' >Login</Link> <span></span> <span></span>
-        <Link to='/register'>Register</Link>
-        </div>
+    <BrowserRouter>
 
-        <Routes>
-           <Route path="/register" element={<Register/>} />
-        </Routes>
+      <nav className="manu-link">
+        <ul>
+          <li><NavLink to='/'>Home</NavLink></li>
+          <li><NavLink to='/login' >Login</NavLink></li>
+          <li><NavLink to='/register'>Register</NavLink></li>
+        </ul>
+      </nav>
 
-            
-      
-        </BrowserRouter>
+      <Routes>
+        <Route path="/register" element={<Register />} />
+      </Routes>
 
-       
-  );
+    </BrowserRouter>
+
+  )
 }
 
 export default App;
