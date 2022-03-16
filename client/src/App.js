@@ -1,6 +1,6 @@
 
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
-import {BrowserRouter, NavLink, Routes, Route} from 'react-router-dom'
 import Register from './Register';
 
 
