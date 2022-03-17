@@ -8,7 +8,6 @@ const Register=()=>{
 
    const registerUser=(e)=>{
       e.preventDefault()
-      
       const data={email,password}
       axios.post('/register', data,{withCredentials:true}).then(()=>{})
 
@@ -18,8 +17,8 @@ const Register=()=>{
        <form action="" onSubmit={e=>registerUser(e)}>
             <h2>Register</h2>
             
-            <input type='email' placeholder="Enter Your Email" required onChange={event=>setEmail(event.target.value)} value={email}/>
-            <input type='password' placeholder="Enter Your Password" required onChange={event=>setPassword(event.target.value)} value={password}/>
+            <input type='text' placeholder="Enter Your Email"  onChange={event=>setEmail(event.target.value)} value={email}/>
+            <input type='password' placeholder="Enter Your Password"  onChange={event=>setPassword(event.target.value)} value={password}/>
 
             <button type="submit">Register</button>
        </form> 

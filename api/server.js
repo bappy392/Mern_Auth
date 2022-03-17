@@ -24,14 +24,20 @@ app.get('/', (req, res) => {
     res.send('Hello3')
 })
 
+//http://localhost:4000/register
+// {
+//   "email":"k@gmail.com", 
+//    "password":"12345"
+// }
 app.post("/register", (req, res) => {
   const {email, password}=req.body
-  const hashedPassword=bcrypt.hashSync(password, 10)
-  const user=User({password:hashedPassword, email})
-  user.save().then((userInfo)=>{
-      console.log(userInfo)
-      res.send('')
-  })
+  console.log(email+"===="+password)
+   const hashedPassword=bcrypt.hashSync(password, 10)
+  // const user=User({password:hashedPassword, email})
+  // user.save().then((userInfo)=>{
+  //     console.log(userInfo)
+  //     res.send('')
+  // })
 });
 
 

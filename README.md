@@ -12,7 +12,7 @@ MERN-Auth-Simple
 6)npm i cookie-parser
 7)npm i mongoose
 8)npm i bcrypt
-9)npm i cors
+9)npm i cors //Not mandatory you can use proxy into react project
 
 
 # Problem Solution:
