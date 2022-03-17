@@ -1,6 +1,3 @@
-import express from 'express';
-import bodyParser from 'body-parser'
-import cookieParser  from 'cookie-parser'
 import mongoose from 'mongoose'
 import User from './models/User.js';
 import bcrypt from 'bcrypt'
@@ -11,18 +8,6 @@ await mongoose.connect('mongodb://127.0.0.1:27017/auth', {useNewUrlParser:true, 
 const db=mongoose.connection;
 db.on('error', console.log)
 
-
-<<<<<<< HEAD
-const app = express()
-app.use(bodyParser.json({extended:true}))
-app.use(cookieParser())
-// app.use(cors({
-//   credentials:true,
-//   origin:'http://localhost:3000'
-// }))
-=======
-const app = express();
->>>>>>> 276d77e7e7bcfe35ac169dc7fe7b758a69c30f02
 
 app.get('/', (req, res) => {
     res.send('Hello3')
