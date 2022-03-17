@@ -1,11 +1,11 @@
+import bcrypt from 'bcrypt';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import express from 'express';
-import bodyParser from 'body-parser'
-import cookieParser  from 'cookie-parser'
-import mongoose from 'mongoose'
-import User from './models/User.js';
-import bcrypt from 'bcrypt'
 // import cors from 'cors'
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
+import User from './models/User.js';
 
 const app = express()
 app.use(bodyParser.json({extended:true}))
