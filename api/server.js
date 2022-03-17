@@ -31,14 +31,17 @@ app.get('/', (req, res) => {
 // }
 app.post("/register", (req, res) => {
   const {email, password}=req.body
-  console.log(email+"===="+password)
+  //console.log(email+"===="+password)
    const hashedPassword=bcrypt.hashSync(password, 10)
-  // const user=User({password:hashedPassword, email})
-  // user.save().then((userInfo)=>{
-  //     console.log(userInfo)
-  //     res.send('')
-  // })
-});
+  
+ const userNoman=User({password:hashedPassword, email})
+ userNomans.save().then((userInfo)=>{
+      console.log(userInfo)
+      res.send('')
+  })
+
+
+})
 
 
 app.listen(4000);

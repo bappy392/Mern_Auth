@@ -8,4 +8,4 @@ const User=mongoose.model('User', new mongoose.Schema({
 }))
 
 
-export default User
+export default User 
