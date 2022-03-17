@@ -34,8 +34,8 @@ app.post("/register", (req, res) => {
   //console.log(email+"===="+password)
    const hashedPassword=bcrypt.hashSync(password, 10)
   
- const userNoman=User({password:hashedPassword, email})
- userNomans.save().then((userInfo)=>{
+ const user=User({password:hashedPassword, email})
+ user.save().then((userInfo)=>{
       console.log(userInfo)
       res.send('')
   })
