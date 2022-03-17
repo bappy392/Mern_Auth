@@ -1,16 +1,39 @@
 
+import { useState } from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Register from './Register';
+import UserContext from './UserContext';
 
 
 
 
 const App = () => {
 
+  const [email,setEmail]=useState('')
+
   return (
 
-    <BrowserRouter>
+    <UserContext.Provider value={{email,setEmail}}>
+      <BrowserRouter>
+
+      <div>
+
+        {
+        
+          !!email && (
+            <div> Login in as {email} </div>
+          )
+
+        }
+
+        {
+          !email && (
+            <div>Not Logged In</div>
+          )
+        }
+      </div>
+      <hr/>
 
       <nav className="manu-link">
         <ul>
@@ -24,7 +47,10 @@ const App = () => {
         <Route path="/register" element={<Register />} />
       </Routes>
 
-    </BrowserRouter>
+      </BrowserRouter>
+
+    </UserContext.Provider>
+   
 
   )
 }

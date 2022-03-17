@@ -1,15 +1,20 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import axios from 'axios'
+import UserContext from "./UserContext"
 
 const Register=()=>{
 
   const [email, setEmail]=useState('')
   const [password, setPassword]=useState('')
 
+  const user=useContext(UserContext)
+
    const registerUser=(e)=>{
       e.preventDefault()
       const data={email,password}
-      axios.post('/register', data,{withCredentials:true}).then(()=>{})
+      axios.post('/register', data,{withCredentials:true}).then(response=>{
+         user.setEmail(response.data.email)
+      })
 
    }
 
