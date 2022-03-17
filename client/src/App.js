@@ -22,24 +22,30 @@ const App = () => {
         {
         
           !!email && (
-            <div> Login in as {email} </div>
+            <div className='bg-emerald-500 text-center text-red-50 text-sm py-1'> Login in as {email} </div>
           )
 
         }
 
         {
           !email && (
-            <div>Not Logged In</div>
+            <div className='bg-rose-500 text-center text-red-50 text-sm py-1'>Not Logged In</div>
           )
         }
       </div>
       <hr/>
 
-      <nav className="manu-link">
-        <ul>
-          <li><NavLink to='/'>Home</NavLink></li>
-          <li><NavLink to='/login' >Login</NavLink></li>
-          <li><NavLink to='/register'>Register</NavLink></li>
+      <nav className="bg-slate-200">
+        <ul className="py-4 px-5 flex justify-center items-center gap-4">
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/register">Register</NavLink>
+          </li>
         </ul>
       </nav>
 
