@@ -10,7 +10,7 @@ const Register=()=>{
       e.preventDefault()
       
       const data={email,password}
-      axios.post('', data)
+      axios.post('/register', data,{withCredentials:true}).then(()=>{})
 
    }
 

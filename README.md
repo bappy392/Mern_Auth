@@ -3,14 +3,20 @@
 MERN-Auth-Simple
 
 # All Package
-
+===================
 1)npm i react-router-dom
 2)npm i axios
 3)npm i express
 4)npm install -g nodemon
+5)npm i body-parser
+6)npm i cookie-parser
+7)npm i mongoose
+8)npm i bcrypt
+9)npm i cors
+
 
 # Problem Solution:
-
+=====================
 1.How to fix error- nodemon.ps1 cannot be loaded because running scripts is disabled on this system, (without security risk)?
 
 For those who are not aware of how to solve this error using Windows PowerShell
