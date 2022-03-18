@@ -53,5 +53,25 @@ app.post("/register", (req, res) => {
 
 })
 
+app.get('/user',(req,res)=>{
+  const payload=jwt.verify(req.cookies.token, secret)
+  User.findById(payload.id).then(userInfo=>{
+    console.log("Khan ",userInfo)
+    res.json({id:userInfo._id,email:userInfo.email})
+  })
+
+})
+
+app.post('/login',(req,res)=>{
+  const {email,password}=req.body
+  User.findOne({email})
+  .then(userInfo=>{
+    const passOk=bcrypt.compareSync(password,userInfo.password)
+    if(passOk){
+      jwt.sign(id:userInfo)
+    }
+  })
+
+})
 
 app.listen(4000);
