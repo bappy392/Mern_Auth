@@ -6,6 +6,7 @@ const Login=()=>{
 
   const [email, setEmail]=useState('')
   const [password, setPassword]=useState('')
+  const [loginError, setLoginError]=useState(false)
 
   const user=useContext(UserContext)
 
@@ -14,14 +15,24 @@ const Login=()=>{
       const data={email,password}
       axios.post('/login', data,{withCredentials:true}).then(response=>{
          user.setEmail(response.data.email)
+         setEmail('')
+         setPassword('')
+         setLoginError(false)
+      })
+      .catch(()=>{
+        setLoginError(true)
       })
 
    }
 
    return (
       <form className="text-center" action="" onSubmit={(e) => loginUser(e)}>
-        <h2 className="text-3xl py-7">Register</h2>
+        <h2 className="text-3xl py-7">Login</h2>
   
+           {loginError && (
+               <div>Login Error! Wrong Email or password!</div>
+           )}
+
         <ul>
           <li className="mb-6">
             <input

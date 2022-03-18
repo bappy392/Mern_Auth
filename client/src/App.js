@@ -21,6 +21,13 @@ const App = () => {
 
   },[])
 
+
+ const logout=()=>{
+     axios.post('/logout',{},{withCredentials:true})
+     .then(()=>setEmail(''))
+ }
+
+
   return (
 
     <UserContext.Provider value={{email,setEmail}}>
@@ -31,7 +38,16 @@ const App = () => {
         {
         
           !!email && (
-            <div className='bg-emerald-500 text-center text-red-50 text-sm py-1'> Login in as {email} </div>
+            <div className='bg-emerald-500 text-center text-red-50 text-sm py-1'> Login in as {email}
+            
+            <button
+              className="ml-10 py-3 px-12 rounded-full bg-orange-500 text-base text-orange-50 hover:bg-orange-400"
+              onClick={()=>logout()}
+            >
+              Logout
+            </button>
+
+             </div>
           )
 
         }

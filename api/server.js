@@ -68,10 +68,23 @@ app.post('/login',(req,res)=>{
   .then(userInfo=>{
     const passOk=bcrypt.compareSync(password,userInfo.password)
     if(passOk){
-      // jwt.sign(id:userInfo)
+      jwt.sign({id:userInfo._id, email:userInfo.email},secret,(err,token)=>{
+        if(err){
+          console.log('err')
+          res.sendStatus(500)
+        }else{
+          res.cookie('token',token).send({id:userInfo._id, email:userInfo.email})
+        }
+      })
+    }else{
+      res.send(401)
     }
   })
 
+})
+
+app.post('/logout',(req,res)=>{
+  res.cookie('token','').send()
 })
 
 app.listen(4000);

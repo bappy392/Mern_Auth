@@ -14,6 +14,8 @@ const Register=()=>{
       const data={email,password}
       axios.post('/register', data,{withCredentials:true}).then(response=>{
          user.setEmail(response.data.email)
+         setEmail('')
+         setPassword('')
       })
 
    }
