@@ -68,7 +68,7 @@ app.post('/login',(req,res)=>{
   .then(userInfo=>{
     const passOk=bcrypt.compareSync(password,userInfo.password)
     if(passOk){
-      jwt.sign(id:userInfo)
+      // jwt.sign(id:userInfo)
     }
   })
 

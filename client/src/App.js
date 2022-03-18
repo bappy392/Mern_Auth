@@ -1,16 +1,25 @@
 
-import { useState } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Register from './Register';
+import Login from './Login';
 import UserContext from './UserContext';
-
-
 
 
 const App = () => {
 
   const [email,setEmail]=useState('')
+
+  useEffect(()=>{
+     axios.get('/user', {withCredentials:true})
+     .then(response=>{
+       setEmail(response.data.email)
+     })
+
+
+  },[])
 
   return (
 
@@ -51,6 +60,7 @@ const App = () => {
 
       <Routes>
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
 
       </BrowserRouter>
